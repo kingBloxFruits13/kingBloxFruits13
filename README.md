@@ -1,67 +1,125 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>خدمات Blox Fruits 🥭🔥</title>
+  <title>BloxFruitStore 🍍💰</title>
   <style>
     body {
-      background-color: #111;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
-      font-family: 'Arial', sans-serif;
       text-align: center;
-      padding: 20px;
+      padding: 60px 20px;
     }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 255, 170, 0.2);
+      max-width: 500px;
+      margin: auto;
+    }
+
     h1 {
-      color: #00ffcc;
+      font-size: 2.5em;
+      margin-bottom: 10px;
     }
-    .card {
-      background: #222;
-      padding: 20px;
-      margin: 20px auto;
+
+    p {
+      font-size: 1.2em;
+      margin: 20px 0;
+      white-space: pre-line;
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #00cc88;
+      border: none;
       border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 0 10px #00ffcc;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
-    .btn {
-      background: #00ffcc;
-      color: #000;
+
+    button:hover {
+      background-color: #00b377;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 20px;
       padding: 10px 20px;
-      margin-top: 10px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 5px;
-      display: inline-block;
+      transition: background 0.3s;
     }
-    .contact {
-      margin-top: 30px;
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+    }
+
+    .support {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background-color: #ffc107;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>👑 متجر خدمات Blox Fruits 👑</h1>
 
-  <div class="card">
-    <h2>فاكهة نادرة (Legendary Fruit)</h2>
-    <p>احصل على فاكهة نادرة داخل اللعبة خلال 24 ساعة فقط!</p>
-    <p>السعر: 15 ريال فقط</p>
-    <a class="btn" href="https://www.paypal.me/YOURPAYPAL">ادفع الآن</a>
+  <div class="container">
+    <h1>BloxFruitStore 🍍💰</h1>
+    <p id="output">اضغط الزر للحصول على حساب وفاكهة 🎲</p>
+    <button onclick="generate()">🎁 احصل على حساب</button>
+    <a id="whatsappLink" href="#" target="_blank" class="whatsapp-btn" style="display:none;">📱 اطلب عبر واتساب</a>
   </div>
 
-  <div class="card">
-    <h2>مساعدة في الليفل 🚀</h2>
-    <p>أساعدك توصل لفل 100 بسرعة بأسلوب احترافي!</p>
-    <p>السعر: 10 ريال</p>
-    <a class="btn" href="https://www.paypal.me/YOURPAYPAL">ادفع الآن</a>
+  <div class="support">
+    💰 للمساعدة المالية
   </div>
 
-  <div class="contact">
-    <p>📩 بعد الدفع، تواصل معي على:</p>
-    <p>Discord: <strong>yourdiscord#1234</strong></p>
-    <p>أو على واتساب: <strong>05XXXXXXXX</strong></p>
-  </div>
+  <script>
+    const fruits = [
+      { name: "Gravity 🍇", price: 30 },
+      { name: "Control ⚡", price: 15 },
+      { name: "Rumble ⚡", price: 15 }
+    ];
 
-  <p style="margin-top: 50px;">🔥 شكراً لدعمك يا أسطورة 🔥</p>
+    const accounts = [
+      "fruitboss99:pass123",
+      "legendx:control007",
+      "rumblegod:powerup",
+      "pineapple_kid:fruity!",
+      "shadowfruit:rumblex"
+    ];
+
+    function generate() {
+      const fruit = fruits[Math.floor(Math.random() * fruits.length)];
+      const account = accounts[Math.floor(Math.random() * accounts.length)];
+      const msg = `👤 حساب Blox Fruits:\n${account}\n🍍 الفاكهة: ${fruit.name}\n💵 السعر: ${fruit.price} درهم`;
+
+      document.getElementById("output").innerText = msg;
+
+      // رقم واتساب - بدله برقمك الفعلي مع رمز الدولة
+      const phone = "971500000000"; // مثال رقم إماراتي
+      const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+      const link = document.getElementById("whatsappLink");
+      link.href = whatsappURL;
+      link.style.display = "inline-block";
+    }
+  </script>
+
 </body>
 </html>
 
